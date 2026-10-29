@@ -16,7 +16,7 @@
 
     <child>
       <object class="GtkMenuItem" id="action-3">
-        <property name="label">nmtui</property>
+        <property name="label">Conmmanctl</property>
       </object>
     </child>
 

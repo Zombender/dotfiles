@@ -3,7 +3,7 @@
         "format": "{icon}",
         "on-scroll-down": "hyprctl dispatch \"hl.dsp.focus({workspace = 'e+1'}\")",
         "on-scroll-up":   "hyprctl dispatch \"hl.dsp.focus({workspace = 'e-1'}\")",
-        "persistent-workspaces": { "*": 5 },
+        "persistent-workspaces": { "*": 9 },
         "cursor": true,
         "format-icons": {
             "active": "󰮯",
@@ -29,7 +29,7 @@
     },
 
     "hyprland/window" : {
-        "max-length": 45
+        "max-length": 50
     },
 
     "cpu": {
@@ -123,10 +123,10 @@
         "menu": "on-click-right",
         "menu-file": "~/.config/waybar/context/network.xml",
         "menu-actions": {
-  			"action-1": "nmcli radio wifi off",
-  			"action-2": "nmcli radio wifi on",
-            "action-3": "hyprctl eval \"hl.exec_cmd('kitty -e nmtui')\"",
-            "action-4": "hyprctl eval \"hl.exec_cmd('nm-connection-editor')\""
+            "action-1": "connmanctl disable wifi",
+            "action-2": "connmanctl enable wifi",
+            "action-3": "hyprctl eval \"hl.exec_cmd('foot -e connmanctl')\"",
+            "action-4": "hyprctl eval \"hl.exec_cmd('cmst')\""
   		}
     },
 
@@ -164,7 +164,7 @@
         "format-alt": "{:%H:%M:%S}",
         "format": "{:%H:%M:%S %d %B %Y}",
         "interval": 1,
-        "on-click-right": "hyprctl eval \"hl.exec_cmd('kitty --class=peaclock -e peaclock')\"",
+        "on-click-right": "hyprctl eval \"hl.exec_cmd('foot --class=peaclock -e peaclock')\"",
         "calendar": {
             "mode": "year",
             "weeks-pos": "right",
@@ -211,15 +211,14 @@
         "menu": "on-click-right",
         "menu-file": "~/.config/waybar/context/ctlcenter.xml",
         "menu-actions": {
-            "action-1-1": "hyprctl eval \"hl.exec_cmd('alacritty -e htop')\"",
-            "action-1-2": "hyprctl eval \"hl.exec_cmd('alacritty -e nvtop')\"",
-            "action-1-3": "hyprctl eval \"hl.exec_cmd('alacritty -e pkexec powertop')\"",
+            "action-1-1": "hyprctl eval \"hl.exec_cmd('foot -e htop')\"",
+            "action-1-2": "hyprctl eval \"hl.exec_cmd('foot -e nvtop')\"",
+            "action-1-3": "hyprctl eval \"hl.exec_cmd('foot -e pkexec powertop')\"",
             "action-1-4": "hyprctl eval \"hl.exec_cmd('missioncenter' )\"",
 
             "action-2-1": "hyprctl eval \"hl.exec_cmd('nwg-look')\"",
             "action-2-2": "hyprctl eval \"hl.exec_cmd('qt6ct')\"",
             "action-2-3": "hyprctl eval \"hl.exec_cmd('kvantummanager')\"",
-
 
             "action-3-1": "~/.local/bin/refreshrate 60",
   			"action-3-2": "~/.local/bin/refreshrate 90",
