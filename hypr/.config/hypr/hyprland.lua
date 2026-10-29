@@ -228,7 +228,7 @@ hl.bind(
 	hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),
 	{ locked = true, repeating = true }
 )
-hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 10%+"), { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 99%"), { locked = true, repeating = true })
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 10%-"), { locked = true, repeating = true })
 
 -- Requires playerctl
@@ -238,6 +238,38 @@ hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = tru
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
 hl.bind("PRINT", hl.dsp.exec_cmd("hyprshot -o ~/Pictures/hyprshot -m output"), { locked = true })
 hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd("hyprshot -o ~/Pictures/hyprshot -m region"), { locked = true })
+
+-- =========================
+-- HY3 WINDOW MANAGEMENT
+-- =========================
+
+local hy3 = hl.plugin.hy3
+
+-- Alternar entre grupo tabulado y no tabulado
+hl.bind(mainMod .. " + T", hy3.change_group("toggletab"))
+
+-- Navegar entre pestañas del grupo
+hl.bind(
+	mainMod .. " + LEFT",
+	hy3.focus_tab({
+		direction = "left",
+		wrap = true,
+	})
+)
+
+hl.bind(
+	mainMod .. "+ RIGHT",
+	hy3.focus_tab({
+		direction = "right",
+		wrap = true,
+	})
+)
+
+-- Mover ventanas entre grupos
+hl.bind(mainMod .. " + ALT + LEFT", hy3.move_window("l"))
+hl.bind(mainMod .. " + ALT + RIGHT", hy3.move_window("r"))
+hl.bind(mainMod .. " + ALT + UP", hy3.move_window("u"))
+hl.bind(mainMod .. " + ALT + DOWN", hy3.move_window("d"))
 
 --------------------------------
 ---- WINDOWS AND WORKSPACES ----

@@ -1,9 +1,16 @@
 return {
   "neovim/nvim-lspconfig",
-  lazy = false,
   opts = {
     servers = {
-      html = {},
+      pylsp = {
+        settings = {
+          pylsp = {
+            plugins = {
+              pycodestyle = { enabled = false },
+            },
+          },
+        },
+      },
     },
   },
 }
